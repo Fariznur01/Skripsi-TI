@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>{{page_title}}</title>
+</head>
+<body id="body-pd">
+<header class="header" id="header">
+    <div class="header__toggle">
+        <i class='bx bx-menu' id="header-toggle"></i>
+    </div>
+</header>
+
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="/dashboard" class="nav__logo">
+                <i class='bx bx-happy nav__logo-icon'></i>
+                <span class="nav__logo-name">Lab UDINUS</span>
+            </a>
+
+            <div class="nav__list">
+                <a href="/dashboard" class="nav__link active">
+                    <i class='bx bx-grid-alt nav__icon'></i>
+                    <span class="nav__name">Dashboard</span>
+                </a>
+
+                <a href="/datapasien" class="nav__link">
+                    <i class='bx bx-user-pin nav__icon'></i>
+                    <span class="nav__name">Data Training</span>
+                </a>
+
+                <a href="/datatraining" class="nav__link">
+                    <i class='bx bx-file nav__icon'></i>
+                    <span class="nav__name">File Data Training </span>
+                </a>
+
+                <a href="/knn" class="nav__link">
+                    <i class='bx bx-file-find nav__icon'></i>
+                    <span class="nav__name">Testing Data K-NN</span>
+                </a>
+
+                <a href="/dtc" class="nav__link">
+                    <i class='bx bx-file-find nav__icon'></i>
+                    <span class="nav__name">Testing Data C4.5</span>
+                </a>
+
+            </div>
+        </div>
+        <a href="/logout_user" class="nav__link">
+            <i class='bx bx-log-out nav__icon'></i>
+            <span class="nav__name">Logout</span>
+        </a>
+    </nav>
+</div>
+<!--End Sidebar-->
+<br>
+<br>
+<br>
+<h1>Sistem Informasi Deteksi Kanker Payudara</h1>
+    {% for message in messages %}
+        {% if message %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endif %}
+    {% endfor %}
+
+<h2>Akun :  {{ user.username }}</h2>
+<h2>Fitur Meliputi</h2>
+<ul>
+    <li>Data Training</li>
+    <li>File Data Training</li>
+    <li>Data Testing K-Nearest Neighbor (K-NN)</li>
+    <li>Data Testing Decision Tree (C4.5)</li>
+    <li>Data Dokter</li>
+</ul>
+
+    <!--===== MAIN JS =====-->
+<script src="{%static 'main.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

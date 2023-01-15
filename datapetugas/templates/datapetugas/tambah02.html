@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<title> Registration or Sign Up form in HTML CSS | CodingLab </title>-->
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/formtambah.css' %}">
+   </head>
+<body>
+  <div class="wrapper">
+    <h2>Tambah Data Dokter</h2>
+         {% for message in messages %}
+           {% if message %}
+            <div class="alert alert-danger">{{ message }}</div>
+           {% endif %}
+          {% endfor %}
+    <form method= "POST" action="." class="login-form spacer" id="signup-form">
+                {% csrf_token %}
+                <div class="input-box">
+                    {{form.username}}
+                </div>
+                <div class="input-box">
+                    <!--<img class="icon input-icon" src="{% static 'envelope.png' %}" alt="Email">-->
+                    {{form.email}}
+                </div>
+                <div class="input-box" >
+                    <!--<img class="icon input-icon" src="{% static 'envelope.png' %}" alt="Password1">-->
+                    {{form.password1}}
+                </div>
+                <div class="input-box">
+                    <!--<img class="icon input-icon" src="{% static 'envelope.png' %}" alt="Passowrd2">-->
+                    {{form.password2}}
+                </div>
+      <div class="input-box button">
+        <input type="Submit" value="Signup">
+      </div>
+       <a class="btn btn-success mb-3 mt-2"  href="{% url 'datapetugas:datapetugas'%}">Kembali</a>
+      <div class="text">
+        <h3>All Right Reserved Copyright &copy; LABORATIUM KOMPUTER UDINUS 2022</h3>
+      </div>
+    </form>
+  </div>
+        <!--===== MAIN JS =====-->
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+{% load static %}
+
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+        <title>{{page_title}}</title>
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+
+            <!--<div class="header__img">
+                <img src="{% static "perfil.jpg"%} alt="Gambar Profil">
+            </div>-->
+        </header>
+<!--Side Bar-->
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="/dashboard" class="nav__logo">
+                        <i class='bx bx-happy nav__logo-icon'></i>
+                        <span class="nav__logo-name">Lab UDINUS</span>
+                    </a>
+
+                    <div class="nav__list">
+
+                        <a href="/dashboard" class="nav__link ">
+                        <i class='bx bx-grid-alt nav__icon' ></i>
+                            <span class="nav__name">Dashboard</span>
+                        </a>
+
+                        <a href="/datapasien" class="nav__link">
+                            <i class='bx bx-user-pin nav__icon' ></i>
+                            <span class="nav__name">Data Training</span>
+                        </a>
+
+                        <a href="/datatraining" class="nav__link">
+                            <i class='bx bx-file nav__icon' ></i>
+                            <span class="nav__name">File Data Training </span>
+                        </a>
+
+                        <a href="/knn" class="nav__link">
+                            <i class='bx bx-file-find nav__icon' ></i>
+                            <span class="nav__name">Testing Data K-NN</span>
+                        </a>
+
+                        <a href="/dtc" class="nav__link active">
+                            <i class='bx bx-file-find nav__icon' ></i>
+                            <span class="nav__name">Testing Data C4.5</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/logout_user" class="nav__link">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">Log Out</span>
+                </a>
+
+
+            </nav>
+        </div>
+<!--End Sidebar-->
+        <br>
+        <br>
+        <br>
+ <h1>Testing C4.5</h1>
+        <form action="{% url 'dtc:resultdtc' %}">
+            {% csrf_token %}
+
+           Radius mean     : <input type="text"  required name="Radius_mean"> <br> <br>
+           Texture mean    : <input type="text"  required name="Texture_mean"> <br> <br>
+           Perimeter mean  : <input type="text"  required name="Perimeter_mean"> <br> <br>
+           Area mean       : <input type="text"  required name="Area_mean"> <br> <br>
+           Smoothness mean : <input type="text"  required name="Smoothness_mean"> <br> <br>
+           Compactness mean: <input type="text"  required name="Compactness_mean"> <br> <br>
+           Concavity mean  : <input type="text"  required name="Concavity_mean"> <br> <br>
+           Concave points mean : <input type="text"  required name="Concave_points_mean"> <br> <br>
+           Symmetry mean   : <input type="text"  required name="Symmetry_mean"> <br> <br>
+           Fractal dimension mean : <input type="text" required name="Fractal_dimension_mean"> <br> <br>
+
+           Radius se     :  <input type="text" required name="Radius_se"> <br> <br>
+           Texture se    : <input type="text"  required name="Texture_se"> <br> <br>
+           Perimeter se  : <input type="text"  required name="Perimeter_se"> <br> <br>
+           Area se       : <input type="text"  required name="Area_se"> <br> <br>
+           Smoothness se : <input type="text" required name="Smoothness_se"> <br> <br>
+           Compactness se: <input type="text" required name="Compactness_se"> <br> <br>
+           Concavity se  : <input type="text"  required name="Concavity_se"> <br> <br>
+           Concave points se : <input type="text"  required name="Concave_points_se"> <br> <br>
+           Symmetry se   : <input type="text"  required name="Symmetry_se"> <br> <br>
+           Fractal dimension se : <input type="text" required name="Fractal_dimension_se"> <br> <br>
+
+           Radius worst     :  <input type="text" required name="Radius_worst"> <br> <br>
+           Texture worst    : <input type="text"  required name="Texture_worst"> <br> <br>
+           Perimeter worst  : <input type="text"  required name="Perimeter_worst"> <br> <br>
+           Area worst       : <input type="text"  required name="Area_worst"> <br> <br>
+           Smoothness worst : <input type="text" required name="Smoothness_worst"> <br> <br>
+           Compactness worst: <input type="text" required name="Compactness_worst"> <br> <br>
+           Concavity worst  : <input type="text"  required name="Concavity_worst"> <br> <br>
+           Concave points worst : <input type="text"  required name="Concave_points_worst"> <br> <br>
+           Symmetry worst   : <input type="text"  required name="Symmetry_worst"> <br> <br>
+           Fractal dimension worst : <input type="text" required name="Fractal_dimension_worst"> <br> <br>
+
+         <input type="submit" name="" value="submit">
+         <br>
+            <a class="btn btn-success mb-3 mt-2" href="{% url 'dtc:dtc'%}">Kembali </a>
+        </form>
+
+        <!--===== MAIN JS =====-->
+        <script src="{%static 'main.js' %}"></script>
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,190 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>{{page_title}}</title>
+</head>
+<body id="body-pd">
+<header class="header" id="header">
+    <div class="header__toggle">
+        <i class='bx bx-menu' id="header-toggle"></i>
+    </div>
+
+    <!--<div class="header__img">
+        <img src="{% static "perfil.jpg"%} alt="Gambar Profil">
+    </div>-->
+</header>
+<!--Side Bar-->
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="/dashboard" class="nav__logo">
+                <i class='bx bx-happy nav__logo-icon'></i>
+                <span class="nav__logo-name">Lab UDINUS</span>
+            </a>
+
+            <div class="nav__list">
+                <a href="/dashboard" class="nav__link">
+                    <i class='bx bx-grid-alt nav__icon'></i>
+                    <span class="nav__name">Dashboard</span>
+                </a>
+
+                <a href="/datapasien" class="nav__link active">
+                    <i class='bx bx-user-pin nav__icon'></i>
+                    <span class="nav__name">Data Training</span>
+                </a>
+
+                <a href="/datatraining" class="nav__link">
+                    <i class='bx bx-file nav__icon'></i>
+                    <span class="nav__name">File Data Training </span>
+                </a>
+
+                <a href="/knn" class="nav__link">
+                    <i class='bx bx-file-find nav__icon'></i>
+                    <span class="nav__name">Testing Data K-NN</span>
+                </a>
+
+                <a href="/dtc" class="nav__link">
+                    <i class='bx bx-file-find nav__icon'></i>
+                    <span class="nav__name">Testing Data C4.5</span>
+                </a>
+
+            </div>
+        </div>
+
+        <a href="/logout_user" class="nav__link">
+            <i class='bx bx-log-out nav__icon'></i>
+            <span class="nav__name">Log Out</span>
+        </a>
+    </nav>
+</div>
+<!--End Sidebar-->
+
+<h1>Data Lampau</h1>
+
+<a class="btn btn-info mb-3 mt-2" href="{% url 'datapasien:export_xls'%}">Export Excel</a>
+ {% for message in messages %}
+  {% if message %}
+   <div class="alert alert-success">{{ message }}</div>
+  {% endif %}
+ {% endfor %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="search" name="cari" placeholder="Cari Pasien" class="form-control">
+</form>
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
+        <!--<th>No</th>-->
+        <th>Nama Pasien</th>
+        <th>Tgl Periksa</th>
+        <th>Diagnosis</th>
+        <th>Radius mean</th>
+        <th>Texture mean</th>
+        <th>Perimeter mean</th>
+        <th>Area mean</th>
+        <th>Smoothness Mean</th>
+        <th>Compactness mean</th>
+        <th>Concavity mean</th>
+        <th>Concave points mean</th>
+        <th>Symmetry mean</th>
+        <th>Fractal dimension mean</th>
+
+        <th>Radius se</th>
+        <th>Texture se</th>
+        <th>Perimeter se</th>
+        <th>Area se</th>
+        <th>Smoothness se</th>
+        <th>Compactness se</th>
+        <th>Concavity se</th>
+        <th>Concave points se</th>
+        <th>Symmetry se</th>
+        <th>Fractal dimension se</th>
+
+        <th>Radius worst</th>
+        <th>Texture worst</th>
+        <th>Perimeter worst</th>
+        <th>Area worst</th>
+        <th>Smoothness worst</th>
+        <th>Compactness worst</th>
+        <th>Concavity worst</th>
+        <th>Concave points worst</th>
+        <th>Symmetry worst</th>
+        <th>Fractal dimension worst</th>
+        <th colspan="2">Aksi</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for pasien in semua_pasien %}
+    <tr>
+        <!--<td scope="row">{{forloop.counter}}</td>-->
+        <td>{{pasien.Nama_Pasien}}</td>
+        <td>{{pasien.Tgl_Periksa}}</td>
+        <td>{{pasien.Diagnosis}}</td>
+        <td>{{pasien.Radius_mean}}</td>
+        <td>{{pasien.Texture_mean}}</td>
+        <td>{{pasien.Perimeter_mean}}</td>
+        <td>{{pasien.Area_mean}}</td>
+        <td>{{pasien.Smoothness_mean}}</td>
+        <td>{{pasien.Compactness_mean}}</td>
+        <td>{{pasien.Concavity_mean}}</td>
+        <td>{{pasien.Concave_points_mean}}</td>
+        <td>{{pasien.Symmetry_mean}}</td>
+        <td>{{pasien.Fractal_dimension_mean}}</td>
+
+        <td>{{pasien.Radius_se}}</td>
+        <td>{{pasien.Texture_se}}</td>
+        <td>{{pasien.Perimeter_se}}</td>
+        <td>{{pasien.Area_se}}</td>
+        <td>{{pasien.Smoothness_se}}</td>
+        <td>{{pasien.Compactness_se}}</td>
+        <td>{{pasien.Concavity_se}}</td>
+        <td>{{pasien.Concave_points_se}}</td>
+        <td>{{pasien.Symmetry_se}}</td>
+        <td>{{pasien.Fractal_dimension_se}}</td>
+
+        <td>{{pasien.Radius_worst}}</td>
+        <td>{{pasien.Texture_worst}}</td>
+        <td>{{pasien.Perimeter_worst}}</td>
+        <td>{{pasien.Area_worst}}</td>
+        <td>{{pasien.Smoothness_worst}}</td>
+        <td>{{pasien.Compactness_worst}}</td>
+        <td>{{pasien.Concavity_worst}}</td>
+        <td>{{pasien.Concave_points_worst}}</td>
+        <td>{{pasien.Symmetry_worst}}</td>
+        <td>{{pasien.Fractal_dimension_worst}}</td>
+        <td>
+            <a class="btn btn-sm btn-success" href="{% url 'datapasien:update' pasien.id %}">Update</a>
+        </td>
+        <td>
+            <a onclick="return confirm('Yakin hapus?')" class="btn btn-sm btn-danger"
+               href="{% url 'datapasien:hapus' pasien.id %}">Hapus</a>
+        </td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+
+<!--===== MAIN JS =====-->
+<script src="{%static 'main.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

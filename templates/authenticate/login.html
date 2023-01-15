@@ -1,0 +1,73 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   </head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <!--<img src="images/frontImg.jpg" alt="">-->
+        <div class="text">
+          <span class="text-1">Laboratium <br> Teknik Informatika</span>
+          <span class="text-2"> UDINUS 2022</span>
+          <span class="text-2"> A11.2018.11018</span>
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+             {% for message in messages %}
+              {% if message %}
+               <div class="alert alert-danger">{{ message }}</div>
+              {% endif %}
+             {% endfor %}
+          <form action="#"  method=POST >
+              	{% csrf_token %}
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text"  class="form-control" name="username" placeholder="Enter your Username" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                  <input type="password" class="form-control" name="password" placeholder="Enter your Password"  id="myInput">
+                  Show Password<input type="checkbox" onclick="myFunction()">
+              </div>
+
+              <div class="button input-box">
+                  <input type="submit" value="Submit" class="btn btn-secondary">
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
+  <!--===== MAIN JS =====-->
+ <script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+</body>
+</html>

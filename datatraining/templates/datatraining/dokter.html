@@ -1,0 +1,94 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}">
+
+        <title>{{page_title}}</title>
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+
+            <!--<div class="header__img">
+                <img src="{% static "perfil.jpg"%} alt="Gambar Profil">
+            </div>-->
+        </header>
+<!--Side Bar-->
+
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="/" class="nav__logo">
+                        <i class='bx bx-happy nav__logo-icon'></i>
+                        <span class="nav__logo-name">Lab UDINUS</span>
+                    </a>
+
+                    <div class="nav__list">
+
+                        <a href="/" class="nav__link">
+                        <i class='bx bx-grid-alt nav__icon' ></i>
+                            <span class="nav__name">Dashboard</span>
+                        </a>
+
+                        <a href="/datapasien" class="nav__link">
+                            <i class='bx bx-user-pin nav__icon' ></i>
+                            <span class="nav__name">Data Training</span>
+                        </a>
+
+                        <a href="/datatraining" class="nav__link active">
+                            <i class='bx bx-file nav__icon' ></i>
+                            <span class="nav__name">File Data Training </span>
+                        </a>
+
+                        <a href="/knn" class="nav__link">
+                            <i class='bx bx-file-find nav__icon' ></i>
+                            <span class="nav__name">Testing Data K-NN</span>
+                        </a>
+
+                        <a href="/dtc" class="nav__link">
+                            <i class='bx bx-file-find nav__icon' ></i>
+                            <span class="nav__name">Testing Data C4.5</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/logout_user" class="nav__link">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">Log Out</span>
+                </a>
+            </nav>
+        </div>
+<!--End Sidebar-->
+          <h1>File Data Training</h1>
+ <table class="table table-bordered table-striped">
+       <thead>
+        <th>File</th>
+        <th>Tanggal</th>
+        <th>Keterangan</th>
+       </thead>
+       <tbody>
+       {%  for file in semua_files %}
+        <tr>
+          <td>{{ file.excel }}</td>
+          <td>{{ file.upload }}</td>
+          <td>{{ file.keterangan }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+   </table>
+        <!--===== MAIN JS =====-->
+        <script src="{%static 'main.js' %}"></script>
+    </body>
+</html>
