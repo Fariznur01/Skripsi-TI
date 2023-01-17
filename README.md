@@ -29,7 +29,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Skripsi mengembangakan apliaksi website data mining deteksi kanker payudara dengan metode K-Kearest Neighbor dan Decision Tree 
+Skripsi mengembangkan apliaksi website data mining deteksi kanker payudara dengan metode K-Kearest Neighbor dan Decision Tree 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
