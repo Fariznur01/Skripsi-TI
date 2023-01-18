@@ -8,7 +8,7 @@
 <a name="readme-top"></a>
 <br>
 
-[![Python3.10](https://img.shields.io/badge/python-3.10-blue.svg)]()
+
 [![Python3.8](https://img.shields.io/badge/python-3.8-blue.svg)]()
 [![Django4.1](https://img.shields.io/badge/django-4.1-green.svg)]()
 [![PostgreSQL.6.12](https://img.shields.io/badge/postgresql-6.12-deepskyblue.svg)]()
@@ -47,9 +47,9 @@ Skripsi mengembangkan apliaksi website data mining deteksi kanker payudara denga
 ## Compatibility
 
 Website dikembangkan menggunakan PyCharm Community Edition dengan django versi 4.1.5 dengan pemrograman Python versi 3.8 dan versi 3.10
-Django\Python  	| 3.8 | 3.10  
---------------- | --- | --- 
-4.1.5    	      |  *  |  *  
+Django\Python  	| 3.8 | 
+--------------- | --- | 
+4.1.5    	    |  *  |  
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
