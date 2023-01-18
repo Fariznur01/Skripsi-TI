@@ -46,7 +46,7 @@ Skripsi mengembangkan apliaksi website data mining deteksi kanker payudara denga
 <!-- COMPATIBILITY -->
 ## Compatibility
 
-Website dikembangkan menggunakan PyCharm Community Edition dengan django versi 4.1.5 dengan pemrograman Python versi 3.8 dan versi 3.10
+Website dikembangkan menggunakan PyCharm Community Edition dengan django versi 4.1.5 dengan pemrograman Python versi 3.8.
 Django\Python  	| 3.8 | 
 --------------- | --- | 
 4.1.5    	    |  *  |  
